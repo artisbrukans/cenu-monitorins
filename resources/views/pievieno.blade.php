@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,27 +21,6 @@
     @if(session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
-        </div>
-    @endif
-
-    <!-- Display submitted data if it exists in session -->
-    @if(session('submitted_data'))
-        <div class="submitted-data">
-            <h2>Submitted Data:</h2>
-            <ul>
-                <li><strong>Svītrkods:</strong> {{ session('submitted_data')['svitrkods'] }}</li>
-                <li><strong>Nosaukums:</strong> {{ session('submitted_data')['nosaukums'] }}</li>
-                <li><strong>Daudzums:</strong> {{ session('submitted_data')['daudzums'] }}</li>
-                <li><strong>Mērvienība:</strong> {{ session('submitted_data')['mervieniba'] }}</li>
-                <li><strong>Nosaukums veikals:</strong> {{ session('submitted_data')['nosaukums_veikals'] }}</li>
-                <li><strong>Valsts:</strong> {{ session('submitted_data')['valsts'] }}</li>
-                <li><strong>Pilsēta:</strong> {{ session('submitted_data')['pilseta'] }}</li>
-                <li><strong>Iela:</strong> {{ session('submitted_data')['iela'] }}</li>
-                <li><strong>Cena par vienu:</strong> {{ session('submitted_data')['cena_vienu'] }}</li>
-                <li><strong>Cena par vienību:</strong> {{ session('submitted_data')['cena_vienibu'] }}</li>
-                <li><strong>Akcijas cena:</strong> {{ session('submitted_data')['akcijas_cena'] }}</li>
-                <li><strong>Akcijas garums:</strong> {{ session('submitted_data')['akcijas_garums'] }}</li>
-            </ul>
         </div>
     @endif
 
@@ -126,7 +105,7 @@
             @enderror
 
             <label for="akcijas_cena">Akcijas cena:</label>
-            <input type="number" step="0.01" id="akcijas_cena" name="akcijas_cena" value="{{ old('akcijas_cena') }}" required min="0">
+            <input type="number" step="0.01" id="akcijas_cena" name="akcijas_cena" value="{{ old('akcijas_cena') }}">
             @error('akcijas_cena')
             <div class="error">{{ $message }}</div>
             @enderror
@@ -138,7 +117,9 @@
             @enderror
         </div>
         <div style="text-align: center;">
-            <button type="submit" class="button">Submit</button>
+            <button type="submit" class="button">Pievienot</button>
+            <!-- Redirects to the welcome view -->
+            <a href="{{ url('/') }}" class="button">Atpakaļ</a>
         </div>
     </form>
 </div>

@@ -9,8 +9,8 @@
 <body>
 <div class="container">
     <h1>Cenu monitorings</h1>
-    <a href="#" class="button">Meklēt</a>
-    <a href="/pievieno" class="button">Pievienot</a>
+    <a href="{{ route('mekle') }}" class="button">Meklēt</a>
+    <a href="{{ route('pievieno') }}" class="button">Pievienot</a>
 </div>
 </body>
 </html>

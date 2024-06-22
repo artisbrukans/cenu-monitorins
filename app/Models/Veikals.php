@@ -2,22 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Veikals extends Model
 {
-    use HasFactory;
-    protected $table = 'veikals';
-    protected $primaryKey = 'Veikals_ID';
+    protected $table = 'Veikals';
+    protected $primaryKey = 'VeikalsID';
+    public $timestamps = false;
 
     protected $fillable = [
-        'Vieta',
         'Nosaukums',
+        'Iela',
+        'Pilseta',
+        'Valsts',
     ];
 
-    public function lokacija()
+    // Relationship with CenuZime: One-to-Many
+    public function cenuZimes()
     {
-        return $this->belongsTo(Lokacija::class, 'Vieta', 'Iela');
+        return $this->hasMany(CenuZime::class, 'VeikalsID', 'VeikalsID');
     }
 }
